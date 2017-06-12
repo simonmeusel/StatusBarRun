@@ -1,6 +1,7 @@
 # StatusBarRun
+![supported os: osx](https://img.shields.io/badge/supported%20os-osx-brightgreen.svg)
 
-StatusBarRun allows you to run shell scripts, apple script or execute any other file with argument directly from your status bar.
+StatusBarRun allows you to run shell scripts, apple script or execute any other file with argument directly from your status bar. This is a mac only application deveoped natively in swift.
 
 ## Installation
 
@@ -11,7 +12,7 @@ StatusBarRun allows you to run shell scripts, apple script or execute any other 
 
 ## Configuration
 
-Once started this app will create a config file located at ~/.status-bar-run
+Once started this app will create a config file located at `~/.status-bar-run.json`. You can edit this file with your default editor (StatusBarRun -> Edit Config)
 
 You can register different command there.
 The key in the json object is the name which appears in the status bar item.
@@ -37,3 +38,7 @@ Example:
 This Example registers a item named `Greet` which run the command `say hi` in `/bin/sh`.
 
 After modifying the config you have to either restart the program or reload the config (StatusBarRun -> Reload Config).
+
+## Uninstallation
+
+To uninstall StatusBarRun simply delete the StatusBarRun.app and the config file, THATS ALL!
