@@ -10,18 +10,24 @@ import Cocoa
 import Foundation
 
 class StatusMenuController: NSObject, NSApplicationDelegate {
-    @IBOutlet weak var statusMenu: NSMenu!
     
+    // Create status item in system status bar
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    // Status menu
+    let statusMenu = NSMenu()
+    // StatusBarRun submenu
+    @IBOutlet weak var statusBarRunMenuItem: NSMenuItem!
+    
     // URL of config file
-    let URL = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("status-bar-run.json", isDirectory: false)
+    let URL = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(".status-bar-run.json", isDirectory: false)
+    // Config data
     var json = JSON.null
     
     @IBAction func quit(_ sender: NSMenuItem) {
         NSApplication.shared().terminate(self)
     }
     
-    @IBAction func editItems(_ sender: NSMenuItem) {
+    @IBAction func editConfig(_ sender: NSMenuItem) {
         // Open config in default editor
         let process = Process();
         process.launchPath = "/usr/bin/open"
@@ -29,24 +35,47 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
         process.launch()
     }
     
+    @IBAction func reloadConfig(_ sender: NSMenuItem) {
+        updateMenu()
+    }
+    
     override func awakeFromNib() {
         statusItem.title = "R"
         statusItem.menu = statusMenu
+        updateMenu()
+    }
+    
+    func updateMenu() {
+        // Load items from config
+        reloadConfig()
+        // Clear items in menu
+        statusMenu.removeAllItems()
+        // Add items to menu
+        for (title, _) : (String, JSON) in json {
+            let item = NSMenuItem(title: title, action: #selector(StatusMenuController.run(sender:)), keyEquivalent: "")
+            item.target = self
+            statusMenu.addItem(item)
+        }
+        // Add status bar run sub menu
+        statusMenu.addItem(statusBarRunMenuItem)
+    }
+    
+    func reloadConfig() {
         do {
+            // Create config file if not already existing
             if (!FileManager.default.fileExists(atPath: URL.path)) {
+                // Write empty JSON object to it
                 try "{}".write(to: URL, atomically: false, encoding: String.Encoding.utf8)
             }
             
+            // Load config data
             let data = try Data(contentsOf: URL, options: .alwaysMapped)
+            // Convert to JSON
             json = try JSON(data: data)
-            if json != JSON.null {
-                for (title, _) : (String, JSON) in json {
-                    let item = NSMenuItem(title: title, action: #selector(StatusMenuController.run(sender:)), keyEquivalent: "")
-                    item.target = self
-                    statusMenu.addItem(item)
-                }
-            } else {
-                print("Could not get json from file, make sure that file contains valid json.")
+            // If JSON could not be parsed
+            if json == JSON.null {
+                // TODO: Create empty json object
+                print("Could not get json from file, make sure that config file contains valid json.")
             }
         } catch let error {
             print(error.localizedDescription)
