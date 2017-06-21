@@ -665,19 +665,19 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="StatusBarRun" id="b7s-jU-Eaj">
                         <items>
-                            <menuItem title="Edit config" id="1yH-BJ-ACd">
+                            <menuItem title="✎ Edit config" id="1yH-BJ-ACd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="editConfig:" target="Px5-5D-Ene" id="eMK-xr-rqV"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Reload config" id="JFL-iv-tQL">
+                            <menuItem title="⟲ Reload config" id="JFL-iv-tQL">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="reloadConfig:" target="Px5-5D-Ene" id="iWj-G6-Sy5"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Quit" id="qJr-9E-iqo">
+                            <menuItem title="⊗ Quit" id="qJr-9E-iqo">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="quit:" target="Px5-5D-Ene" id="ufy-hd-lZs"/>
