@@ -11,6 +11,8 @@ import Foundation
 
 class StatusMenuController: NSObject, NSApplicationDelegate {
     
+    let zeroWidthSpace = "​";
+    
     // Create status item in system status bar
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     // Status menu
@@ -22,6 +24,7 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     let URL = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(".status-bar-run.json", isDirectory: false)
     // Config data
     var json = JSON.null
+    var map: [String:JSON] = [:]
     
     @IBAction func quit(_ sender: NSMenuItem) {
         NSApplication.shared().terminate(self)
@@ -48,16 +51,48 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     func updateMenu() {
         // Load items from config
         reloadConfig()
+        map = [:]
         // Clear items in menu
         statusMenu.removeAllItems()
         // Add items to menu
-        for (title, _) : (String, JSON) in json {
-            let item = NSMenuItem(title: title, action: #selector(StatusMenuController.run(sender:)), keyEquivalent: "")
-            item.target = self
-            statusMenu.addItem(item)
+        for (title, options) : (String, JSON) in json {
+            statusMenu.addItem(generateMenu(title: title, options: options, nesting: 1))
         }
+        json = JSON.null
         // Add status bar run sub menu
         statusMenu.addItem(statusBarRunMenuItem)
+    }
+    
+    func generateMenu(title: String, options: JSON, nesting: Int) -> NSMenuItem {
+        if (options["launchPath"] == JSON.null) {
+            // MenuItem with submenu
+            let item = NSMenuItem(title: title, action: nil, keyEquivalent: "")
+            item.submenu = NSMenu(title: title)
+            for (nestedTitle, nestedOptions) : (String, JSON) in options {
+                item.submenu?.addItem(generateMenu(title: nestedTitle, options: nestedOptions, nesting: nesting + 1))
+            }
+            return item;
+        } else {
+            // MenuItem without submenu
+            let prefixedTitle = getPrefix(nesting: nesting) + title.replacingOccurrences(of: zeroWidthSpace, with: "");
+            // Save action
+            map[prefixedTitle] = options
+            // Create item
+            let item = NSMenuItem(title: prefixedTitle, action: #selector(StatusMenuController.run(sender:)), keyEquivalent: "")
+            item.target = self
+            return item;
+        }
+    }
+    
+    func getPrefix(nesting: Int) -> String {
+        if (nesting == 1) {
+            return "";
+        }
+        var prefix = zeroWidthSpace;
+        for _ in 2..<nesting {
+            prefix += zeroWidthSpace;
+        }
+        return prefix;
     }
     
     func reloadConfig() {
@@ -83,7 +118,7 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     }
     
     func run(sender: NSMenuItem) {
-        let options = json[sender.title]
+        let options = map[sender.title]!
         let process = Process();
         process.launchPath = options["launchPath"].stringValue
         process.arguments = options["arguments"].arrayObject as? [String]
