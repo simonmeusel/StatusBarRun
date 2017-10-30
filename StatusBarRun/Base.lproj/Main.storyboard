@@ -665,6 +665,25 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="StatusBarRun" id="b7s-jU-Eaj">
                         <items>
+                            <menuItem title="Start on login" id="1QM-oo-vod">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Start on login" id="QKI-Ph-eOV">
+                                    <items>
+                                        <menuItem title="Add to login items" id="ihb-Mr-lCH">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="enableLoginItem:" target="Px5-5D-Ene" id="Ln9-S5-I0L"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Remove from login items" id="Ffl-ry-H2f">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="disableLoginItem:" target="Px5-5D-Ene" id="zBa-uf-cAc"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="✎ Edit config" id="1yH-BJ-ACd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>

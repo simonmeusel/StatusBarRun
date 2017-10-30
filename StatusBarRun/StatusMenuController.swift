@@ -8,6 +8,7 @@
 
 import Cocoa
 import Foundation
+import ServiceManagement
 
 class StatusMenuController: NSObject, NSApplicationDelegate {
     
@@ -30,6 +31,14 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
         NSApplication.shared().terminate(self)
     }
     
+    @IBAction func enableLoginItem(_ sender: NSMenuItem) {
+        setLoginItemEnabled(enabled: true)
+    }
+    
+    @IBAction func disableLoginItem(_ sender: NSMenuItem) {
+        setLoginItemEnabled(enabled: false)
+    }
+    
     @IBAction func editConfig(_ sender: NSMenuItem) {
         // Open config in default editor
         let process = Process();
@@ -46,6 +55,17 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
         statusItem.title = "R"
         statusItem.menu = statusMenu
         updateMenu()
+    }
+    
+    func setLoginItemEnabled(enabled: Bool) {
+        if(!SMLoginItemSetEnabled(Bundle.main.bundleIdentifier! as CFString, enabled)) {
+            let alert: NSAlert = NSAlert()
+            alert.messageText = "Error while updating Login Item";
+            alert.informativeText = "The 'start on login' status of this application could not be changed! Manage your Login Items: System Preferences -> Users & Groups -> Current User -> Login Items";
+            alert.alertStyle = NSAlertStyle.warning;
+            alert.addButton(withTitle: "Ok");
+            alert.runModal();
+        }
     }
     
     func updateMenu() {
