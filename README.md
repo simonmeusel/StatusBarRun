@@ -5,6 +5,8 @@ StatusBarRun allows you to run shell scripts, apple script or execute any other 
 
 ## Installation
 
+This app has been tested on MacOS Sierra and MacOS High Sierra, but should also work in prior versions of MacOS.
+
 1. Download the app from [here](https://github.com/simonmeusel/StatusBarRun/releases)
 2. Execute the app once
 3. Click on the R on the top left and select the menu item `Edit items` to edit your [config](https://github.com/simonmeusel/StatusBarRun#configuration)
