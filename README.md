@@ -12,33 +12,72 @@ StatusBarRun allows you to run shell scripts, apple script or execute any other 
 
 ## Configuration
 
-Once started this app will create a config file located at `~/.status-bar-run.json`. You can edit this file with your default editor (StatusBarRun -> Edit Config)
+This program will create a config file located at `~/.status-bar-run.json`. You can edit this file with your default editor (StatusBarRun -> Edit Config)
 
 You can register different command there.
 The key in the json object is the name which appears in the status bar item.
 The value must be a json object too. It must have the attributes `launchPath` (string) and `arguments` (array of strings).
 The `launchPath` is the path to the program to start with the given `arguments`.
 
+Additionally it's possible to nest your commands as seen in the second example.
+
 Example:
 
 ![Greet](http://i.imgur.com/5dylGW2.png)
 
+This Example registers a item named `Greet` which runs the command `say hi` in `/bin/sh`.
+
 ```json
 {
-  "Greet": {
-    "launchPath": "/bin/sh",
-    "arguments": [
-      "-c",
-      "say hi"
-    ]
-  }
+    "Greet": {
+        "launchPath": "/bin/sh",
+        "arguments": [
+            "-c",
+            "say hi"
+        ]
+    }
 }
 ```
 
-This Example registers a item named `Greet` which run the command `say hi` in `/bin/sh`.
+Second example:
+
+```json
+{
+    "Fortune": {
+        "launchPath": "/bin/sh",
+        "arguments": [
+            "-c",
+            "say -v Samantha $('/usr/local/Cellar/fortune/9708/bin/fortune' -s)"
+        ]
+    },
+    "Remove formatting of clipboard": {
+        "launchPath": "/bin/sh",
+        "arguments": [
+            "-c",
+            "pbpaste | pbcopy"
+        ]
+    },
+    "Web proxy": {
+        "On": {
+            "launchPath": "/bin/sh",
+            "arguments": [
+                "-c",
+                "networksetup -setwebproxy \"Wi-Fi\" 1.2.3.4 1234 off && networksetup -setwebproxystate \"Wi-Fi\" on"
+            ]
+        },
+        "Off": {
+            "launchPath": "/bin/sh",
+            "arguments": [
+                "-c",
+                "networksetup -setwebproxystate \"Wi-Fi\" off"
+            ]
+        }
+    }
+}
+```
 
 After modifying the config you have to either restart the program or reload the config (StatusBarRun -> Reload Config).
 
 ## Uninstallation
 
-To uninstall StatusBarRun simply delete the StatusBarRun.app and the config file, THATS ALL!
+To uninstall StatusBarRun simply delete the StatusBarRun.app and the config file (`rm ~/.status-bar-run.json`), THATS ALL!
