@@ -1,7 +1,9 @@
 # StatusBarRun
 ![supported os: osx](https://img.shields.io/badge/supported%20os-osx-brightgreen.svg)
 
-StatusBarRun allows you to run shell scripts, apple script or execute any other file with argument directly from your status bar. This is a mac only application deveoped natively in swift.
+This program allows you to run **any program** (terminal command / applescript / open file / start application) via your **status bar** or a **global shortcut**.
+
+This is a mac only application developed natively in swift. Thus its very cpu efficient and does not consume any battery when in idle (**zero energy impact** in activity monitor).
 
 ## Installation
 
@@ -9,8 +11,8 @@ This app has been tested on MacOS Sierra and MacOS High Sierra, but should also 
 
 1. Download the app from [here](https://github.com/simonmeusel/StatusBarRun/releases)
 2. Execute the app once
-3. Click on the R on the top left and select the menu item `Edit items` to edit your [config](https://github.com/simonmeusel/StatusBarRun#configuration)
-4. To add this app to the startup simply drag it into your login items (System Preferences -> Users & Groups -> Current User -> Login Items) and tick the checkbox
+3. Click on the R on the top left of your screen and select the menu item `Edit items` to edit your [config](https://github.com/simonmeusel/StatusBarRun#configuration)
+4. To add this app to the **startup** simply drag it into your login items (System Preferences -> Users & Groups -> Current User -> **Login Items**) and tick the checkbox
 
 ## Configuration
 
@@ -27,7 +29,7 @@ Example:
 
 ![Greet](http://i.imgur.com/5dylGW2.png)
 
-This Example registers a item named `Greet` which runs the command `say hi` in `/bin/sh`.
+This Example registers a item named `Greet` which runs the command `say hi` in `/bin/sh`. It can also be triggered by pressing `command + option + g`
 
 ```json
 {
@@ -36,7 +38,14 @@ This Example registers a item named `Greet` which runs the command `say hi` in `
         "arguments": [
             "-c",
             "say hi"
-        ]
+        ],
+        "hotkey": {
+            "key": "g",
+            "modifiers": [
+                "command",
+                "option"
+            ]
+        }
     }
 }
 ```
@@ -53,6 +62,13 @@ Second example:
         ]
     },
     "Remove formatting of clipboard": {
+        "hotkey": {
+            "key": "g",
+            "modifiers": [
+                "command",
+                "option"
+            ]
+        },
         "launchPath": "/bin/sh",
         "arguments": [
             "-c",
@@ -80,6 +96,23 @@ Second example:
 
 After modifying the config you have to either restart the program or reload the config (StatusBarRun -> Reload Config).
 
+## Global shortcuts
+
+For possible `key` codes, see [soffes/HotKey](https://github.com/soffes/HotKey/blob/5970874b44ee03e381f46c61b4b6a75c9b49243e/HotKey/Sources/Key.swift).
+
+Possible modifiers are:
+
+```
+capsLock
+shift
+control
+option // Alt
+command
+numericPad // Any key on the number pad
+help // Help key
+function // Any function key
+```
+
 ## Uninstallation
 
-To uninstall StatusBarRun simply delete the StatusBarRun.app and the config file (`rm ~/.status-bar-run.json`), THATS ALL!
+To uninstall StatusBarRun simply delete the StatusBarRun.app and the config file (`rm ~/.status-bar-run.json`), THATS IT!

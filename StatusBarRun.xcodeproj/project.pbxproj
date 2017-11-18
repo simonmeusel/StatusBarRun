@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3479B7A1FC0866800FB51D7 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3479B791FC0866800FB51D7 /* HotKey.framework */; };
+		F3479B7B1FC0866800FB51D7 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F3479B791FC0866800FB51D7 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F359281D1EED93B60083AA41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359281C1EED93B60083AA41 /* AppDelegate.swift */; };
 		F35928241EED93B60083AA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35928231EED93B60083AA41 /* Assets.xcassets */; };
 		F35928271EED93B60083AA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35928251EED93B60083AA41 /* Main.storyboard */; };
@@ -14,7 +16,24 @@
 		F35928331EEDA89A0083AA41 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35928321EEDA89A0083AA41 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F3479B7C1FC0866800FB51D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F3479B7B1FC0866800FB51D7 /* HotKey.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F3479B751FC0521000FB51D7 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Carthage/Build/Mac/HotKey.framework; sourceTree = "<group>"; };
+		F3479B771FC0861300FB51D7 /* HotKey.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = HotKey.framework.dSYM; path = Carthage/Build/Mac/HotKey.framework.dSYM; sourceTree = "<group>"; };
+		F3479B791FC0866800FB51D7 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Carthage/Build/Mac/HotKey.framework; sourceTree = "<group>"; };
 		F35928191EED93B60083AA41 /* StatusBarRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusBarRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F359281C1EED93B60083AA41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F35928231EED93B60083AA41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -29,17 +48,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3479B7A1FC0866800FB51D7 /* HotKey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3479B741FC0521000FB51D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3479B771FC0861300FB51D7 /* HotKey.framework.dSYM */,
+				F3479B751FC0521000FB51D7 /* HotKey.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F35928101EED93B60083AA41 = {
 			isa = PBXGroup;
 			children = (
+				F3479B791FC0866800FB51D7 /* HotKey.framework */,
 				F359281B1EED93B60083AA41 /* StatusBarRun */,
 				F359281A1EED93B60083AA41 /* Products */,
+				F3479B741FC0521000FB51D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +105,7 @@
 				F35928151EED93B60083AA41 /* Sources */,
 				F35928161EED93B60083AA41 /* Frameworks */,
 				F35928171EED93B60083AA41 /* Resources */,
+				F3479B7C1FC0866800FB51D7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,6 +286,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4Z9RUD85Z8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = StatusBarRun/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.simonmeusel.StatusBarRun;
@@ -268,6 +304,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4Z9RUD85Z8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = StatusBarRun/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.simonmeusel.StatusBarRun;
