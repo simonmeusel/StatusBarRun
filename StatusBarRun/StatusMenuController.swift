@@ -10,6 +10,7 @@ import Cocoa
 import Foundation
 import HotKey
 import ServiceManagement
+import SwiftyJSON
 
 class StatusMenuController: NSObject, NSApplicationDelegate {
     

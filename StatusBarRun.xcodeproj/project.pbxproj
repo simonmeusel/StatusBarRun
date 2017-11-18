@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		F3479B7A1FC0866800FB51D7 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3479B791FC0866800FB51D7 /* HotKey.framework */; };
 		F3479B7B1FC0866800FB51D7 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F3479B791FC0866800FB51D7 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F3479B7E1FC0957900FB51D7 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3479B7D1FC0957900FB51D7 /* SwiftyJSON.framework */; };
+		F3479B7F1FC0957900FB51D7 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F3479B7D1FC0957900FB51D7 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F359281D1EED93B60083AA41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359281C1EED93B60083AA41 /* AppDelegate.swift */; };
 		F35928241EED93B60083AA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35928231EED93B60083AA41 /* Assets.xcassets */; };
 		F35928271EED93B60083AA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35928251EED93B60083AA41 /* Main.storyboard */; };
 		F359282F1EED98390083AA41 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359282E1EED98390083AA41 /* StatusMenuController.swift */; };
-		F35928331EEDA89A0083AA41 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35928321EEDA89A0083AA41 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,6 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F3479B7F1FC0957900FB51D7 /* SwiftyJSON.framework in Embed Frameworks */,
 				F3479B7B1FC0866800FB51D7 /* HotKey.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -34,13 +36,13 @@
 		F3479B751FC0521000FB51D7 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Carthage/Build/Mac/HotKey.framework; sourceTree = "<group>"; };
 		F3479B771FC0861300FB51D7 /* HotKey.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = HotKey.framework.dSYM; path = Carthage/Build/Mac/HotKey.framework.dSYM; sourceTree = "<group>"; };
 		F3479B791FC0866800FB51D7 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Carthage/Build/Mac/HotKey.framework; sourceTree = "<group>"; };
+		F3479B7D1FC0957900FB51D7 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		F35928191EED93B60083AA41 /* StatusBarRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusBarRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F359281C1EED93B60083AA41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F35928231EED93B60083AA41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F35928261EED93B60083AA41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F35928281EED93B60083AA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F359282E1EED98390083AA41 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
-		F35928321EEDA89A0083AA41 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3479B7E1FC0957900FB51D7 /* SwiftyJSON.framework in Frameworks */,
 				F3479B7A1FC0866800FB51D7 /* HotKey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +70,7 @@
 		F35928101EED93B60083AA41 = {
 			isa = PBXGroup;
 			children = (
+				F3479B7D1FC0957900FB51D7 /* SwiftyJSON.framework */,
 				F3479B791FC0866800FB51D7 /* HotKey.framework */,
 				F359281B1EED93B60083AA41 /* StatusBarRun */,
 				F359281A1EED93B60083AA41 /* Products */,
@@ -85,7 +89,6 @@
 		F359281B1EED93B60083AA41 /* StatusBarRun */ = {
 			isa = PBXGroup;
 			children = (
-				F35928321EEDA89A0083AA41 /* SwiftyJSON.swift */,
 				F359281C1EED93B60083AA41 /* AppDelegate.swift */,
 				F35928231EED93B60083AA41 /* Assets.xcassets */,
 				F35928251EED93B60083AA41 /* Main.storyboard */,
@@ -170,7 +173,6 @@
 			files = (
 				F359282F1EED98390083AA41 /* StatusMenuController.swift in Sources */,
 				F359281D1EED93B60083AA41 /* AppDelegate.swift in Sources */,
-				F35928331EEDA89A0083AA41 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
