@@ -15,6 +15,9 @@
 		F35928241EED93B60083AA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35928231EED93B60083AA41 /* Assets.xcassets */; };
 		F35928271EED93B60083AA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35928251EED93B60083AA41 /* Main.storyboard */; };
 		F359282F1EED98390083AA41 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359282E1EED98390083AA41 /* StatusMenuController.swift */; };
+		F386173C1FC32D3A000BD399 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386173B1FC32D3A000BD399 /* Config.swift */; };
+		F386173E1FC3314E000BD399 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386173D1FC3314E000BD399 /* HotkeyManager.swift */; };
+		F3A252DC1FC343FF007091A2 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A252DB1FC343FF007091A2 /* LoginItemManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +46,9 @@
 		F35928261EED93B60083AA41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F35928281EED93B60083AA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F359282E1EED98390083AA41 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		F386173B1FC32D3A000BD399 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F386173D1FC3314E000BD399 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		F3A252DB1FC343FF007091A2 /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,9 @@
 				F35928251EED93B60083AA41 /* Main.storyboard */,
 				F35928281EED93B60083AA41 /* Info.plist */,
 				F359282E1EED98390083AA41 /* StatusMenuController.swift */,
+				F386173B1FC32D3A000BD399 /* Config.swift */,
+				F386173D1FC3314E000BD399 /* HotkeyManager.swift */,
+				F3A252DB1FC343FF007091A2 /* LoginItemManager.swift */,
 			);
 			path = StatusBarRun;
 			sourceTree = "<group>";
@@ -173,6 +182,9 @@
 			files = (
 				F359282F1EED98390083AA41 /* StatusMenuController.swift in Sources */,
 				F359281D1EED93B60083AA41 /* AppDelegate.swift in Sources */,
+				F386173C1FC32D3A000BD399 /* Config.swift in Sources */,
+				F386173E1FC3314E000BD399 /* HotkeyManager.swift in Sources */,
+				F3A252DC1FC343FF007091A2 /* LoginItemManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
