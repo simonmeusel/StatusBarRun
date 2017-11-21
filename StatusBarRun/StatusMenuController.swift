@@ -15,7 +15,7 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     let zeroWidthSpace = "​";
     
     // Create status item in system status bar
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     // Status menu
     let statusMenu = NSMenu()
     // StatusBarRun submenu
@@ -25,7 +25,7 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     var map: [String:JSON] = [:]
     
     @IBAction func quit(_ sender: NSMenuItem) {
-        NSApplication.shared().terminate(self)
+        NSApplication.shared.terminate(self)
     }
     
     @IBAction func enableLoginItem(_ sender: NSMenuItem) {
@@ -111,7 +111,7 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
         return prefix;
     }
     
-    func run(sender: NSMenuItem) {
+    @objc func run(sender: NSMenuItem) {
         let options = map[sender.title]!
         let process = Process();
         process.launchPath = options["launchPath"].stringValue

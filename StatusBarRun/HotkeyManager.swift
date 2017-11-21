@@ -37,9 +37,9 @@ class HotkeyManager {
         }
     }
     
-    func getHotkeyModifiers(modifierNames: [JSON]) -> NSEventModifierFlags {
-        var modifiers = NSEventModifierFlags.command
-        modifiers.remove(.command)
+    func getHotkeyModifiers(modifierNames: [JSON]) -> NSEvent.ModifierFlags {
+        var modifiers = NSEvent.ModifierFlags.command
+        modifiers.remove(NSEvent.ModifierFlags.command)
         loop: for modifierName in modifierNames {
             var modifier: NSEvent.ModifierFlags
             switch (modifierName.stringValue) {
@@ -47,25 +47,25 @@ class HotkeyManager {
                 modifier = NSEvent.ModifierFlags.capsLock
                 break
             case "shift":
-                modifier = NSEventModifierFlags.shift
+                modifier = NSEvent.ModifierFlags.shift
                 break
             case "control":
-                modifier = NSEventModifierFlags.control
+                modifier = NSEvent.ModifierFlags.control
                 break
             case "option":
-                modifier = NSEventModifierFlags.option
+                modifier = NSEvent.ModifierFlags.option
                 break
             case "command":
-                modifier = NSEventModifierFlags.command
+                modifier = NSEvent.ModifierFlags.command
                 break
             case "numericPad":
-                modifier = NSEventModifierFlags.numericPad
+                modifier = NSEvent.ModifierFlags.numericPad
                 break
             case "help":
-                modifier = NSEventModifierFlags.help
+                modifier = NSEvent.ModifierFlags.help
                 break
             case "function":
-                modifier = NSEventModifierFlags.function
+                modifier = NSEvent.ModifierFlags.function
                 break
             default:
                 continue loop

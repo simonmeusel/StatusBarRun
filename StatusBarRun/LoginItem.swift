@@ -17,7 +17,7 @@ class LoginItem {
             let alert: NSAlert = NSAlert()
             alert.messageText = "Error while updating Login Item";
             alert.informativeText = "The 'start on login' status of this application could not be changed! Manage your Login Items: System Preferences -> Users & Groups -> Current User -> Login Items";
-            alert.alertStyle = NSAlertStyle.warning;
+            alert.alertStyle = NSAlert.Style.warning;
             alert.addButton(withTitle: "Ok");
             alert.runModal();
         }
