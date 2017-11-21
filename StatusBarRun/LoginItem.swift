@@ -10,9 +10,9 @@ import Cocoa
 import Foundation
 import ServiceManagement
 
-class LoginItemManager {
+class LoginItem {
     
-    static func setLoginItemEnabled(enabled: Bool) {
+    static func setEnabled(enabled: Bool) {
         if(!SMLoginItemSetEnabled(Bundle.main.bundleIdentifier! as CFString, enabled)) {
             let alert: NSAlert = NSAlert()
             alert.messageText = "Error while updating Login Item";

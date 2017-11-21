@@ -17,7 +17,7 @@
 		F359282F1EED98390083AA41 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359282E1EED98390083AA41 /* StatusMenuController.swift */; };
 		F386173C1FC32D3A000BD399 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386173B1FC32D3A000BD399 /* Config.swift */; };
 		F386173E1FC3314E000BD399 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386173D1FC3314E000BD399 /* HotkeyManager.swift */; };
-		F3A252DC1FC343FF007091A2 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A252DB1FC343FF007091A2 /* LoginItemManager.swift */; };
+		F3A252DC1FC343FF007091A2 /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A252DB1FC343FF007091A2 /* LoginItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,7 +48,7 @@
 		F359282E1EED98390083AA41 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
 		F386173B1FC32D3A000BD399 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F386173D1FC3314E000BD399 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
-		F3A252DB1FC343FF007091A2 /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
+		F3A252DB1FC343FF007091A2 /* LoginItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 				F359282E1EED98390083AA41 /* StatusMenuController.swift */,
 				F386173B1FC32D3A000BD399 /* Config.swift */,
 				F386173D1FC3314E000BD399 /* HotkeyManager.swift */,
-				F3A252DB1FC343FF007091A2 /* LoginItemManager.swift */,
+				F3A252DB1FC343FF007091A2 /* LoginItem.swift */,
 			);
 			path = StatusBarRun;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 				F359281D1EED93B60083AA41 /* AppDelegate.swift in Sources */,
 				F386173C1FC32D3A000BD399 /* Config.swift in Sources */,
 				F386173E1FC3314E000BD399 /* HotkeyManager.swift in Sources */,
-				F3A252DC1FC343FF007091A2 /* LoginItemManager.swift in Sources */,
+				F3A252DC1FC343FF007091A2 /* LoginItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

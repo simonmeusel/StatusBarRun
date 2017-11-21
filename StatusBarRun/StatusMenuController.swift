@@ -29,11 +29,11 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func enableLoginItem(_ sender: NSMenuItem) {
-        LoginItemManager.setLoginItemEnabled(enabled: true)
+        LoginItem.setEnabled(enabled: true)
     }
     
     @IBAction func disableLoginItem(_ sender: NSMenuItem) {
-        LoginItemManager.setLoginItemEnabled(enabled: false)
+        LoginItem.setEnabled(enabled: false)
     }
     
     @IBAction func editConfig(_ sender: NSMenuItem) {
@@ -98,9 +98,12 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     }
     
     func getPrefix(nesting: Int) -> String {
+        // Generate prefix for a given amount of nestings
         if (nesting == 1) {
+            // No zero width space
             return "";
         }
+        // One or more zero width spaces
         var prefix = zeroWidthSpace;
         for _ in 2..<nesting {
             prefix += zeroWidthSpace;
