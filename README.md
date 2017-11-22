@@ -16,12 +16,17 @@ This app has been tested on MacOS Sierra and MacOS High Sierra, but should also 
 
 ## Configuration
 
-This program will create a config file located at `~/.status-bar-run.json`. You can edit this file with your default editor (StatusBarRun -> Edit Config)
+This program will create a config file located at `~/.status-bar-run.json`.
+You can edit this file with your default editor (StatusBarRun -> Edit Config).
 
 You can register different command there.
 The key in the json object is the name which appears in the status bar item.
-The value must be a json object too. It must have the attributes `launchPath` (string) and `arguments` (array of strings).
+The value must be a json object too.
+It must have the attributes `launchPath` (string) and `arguments` (array of strings).
 The `launchPath` is the path to the program to start with the given `arguments`.
+
+Moreover you can use a `label` option (which also contains `launchPath` and `arguments`).
+The output of this process will override the label, as seen in the second example (`week`).
 
 Additionally it's possible to nest your commands as seen in the second example.
 
@@ -54,6 +59,21 @@ Second example:
 
 ```json
 {
+    "Week": {
+        "label": {
+            "launchPath": "/bin/sh",
+            "arguments": [
+                "-c",
+                "date '+%V'"
+            ],
+            "suffix": ". week of year"
+        },
+        "launchPath": "/bin/sh",
+        "arguments": [
+            "-c",
+            "open /Applications/Calendar.app"
+        ]
+    },
     "Fortune": {
         "launchPath": "/bin/sh",
         "arguments": [

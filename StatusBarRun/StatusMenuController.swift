@@ -93,6 +93,12 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
             if (options["hotkey"] != JSON.null) {
                 hotkeyManager!.registerHotkey(hotkeyOptions: options["hotkey"], item: item)
             }
+            if (options["label"] != JSON.null) {
+                let labelOptions = options["label"];
+                runProcess(options: labelOptions, terminationHandler: {(label) -> Void in
+                    item.title = labelOptions["prefix"].stringValue + label + labelOptions["suffix"].stringValue;
+                })
+            }
             return item;
         }
     }
@@ -113,9 +119,22 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     
     @objc func run(sender: NSMenuItem) {
         let options = map[sender.title]!
+        runProcess(options: options, terminationHandler: nil)
+    }
+    
+    func runProcess(options: JSON, terminationHandler: ((String) -> Void)?) {
         let process = Process();
         process.launchPath = options["launchPath"].stringValue
         process.arguments = options["arguments"].arrayObject as? [String]
+        var pipe: Pipe?;
+        if (terminationHandler != nil) {
+            pipe = Pipe()
+            process.standardOutput = pipe
+            process.terminationHandler = {(process) -> Void in
+                let data = pipe!.fileHandleForReading.availableData
+                terminationHandler!(String(data: data, encoding: String.Encoding.utf8)!)
+            }
+        }
         process.launch()
     }
 }
