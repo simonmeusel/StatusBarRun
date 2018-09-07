@@ -1,4 +1,5 @@
 # StatusBarRun
+
 ![supported os: osx](https://img.shields.io/badge/supported%20os-osx-brightgreen.svg)
 
 This program allows you to run **any program** (terminal command / applescript / open file / start application) via your **status bar** or a **global shortcut**.
@@ -40,16 +41,10 @@ This Example registers a item named `Greet` which runs the command `say hi` in `
 {
     "Greet": {
         "launchPath": "/bin/sh",
-        "arguments": [
-            "-c",
-            "say hi"
-        ],
+        "arguments": ["-c", "say hi"],
         "hotkey": {
             "key": "g",
-            "modifiers": [
-                "command",
-                "option"
-            ]
+            "modifiers": ["command", "option"]
         }
     }
 }
@@ -62,17 +57,12 @@ Second example:
     "Week": {
         "label": {
             "launchPath": "/bin/sh",
-            "arguments": [
-                "-c",
-                "date '+%V'"
-            ],
-            "suffix": ". week of year"
+            "arguments": ["-c", "date '+%V'"],
+            "suffix": ". week of year",
+            "trimOutput": true
         },
         "launchPath": "/bin/sh",
-        "arguments": [
-            "-c",
-            "open /Applications/Calendar.app"
-        ]
+        "arguments": ["-c", "open /Applications/Calendar.app"]
     },
     "Fortune": {
         "launchPath": "/bin/sh",
@@ -84,16 +74,10 @@ Second example:
     "Remove formatting of clipboard": {
         "hotkey": {
             "key": "g",
-            "modifiers": [
-                "command",
-                "option"
-            ]
+            "modifiers": ["command", "option"]
         },
         "launchPath": "/bin/sh",
-        "arguments": [
-            "-c",
-            "pbpaste | pbcopy"
-        ]
+        "arguments": ["-c", "pbpaste | pbcopy"]
     },
     "Web proxy": {
         "On": {
@@ -105,10 +89,7 @@ Second example:
         },
         "Off": {
             "launchPath": "/bin/sh",
-            "arguments": [
-                "-c",
-                "networksetup -setwebproxystate \"Wi-Fi\" off"
-            ]
+            "arguments": ["-c", "networksetup -setwebproxystate \"Wi-Fi\" off"]
         }
     }
 }
