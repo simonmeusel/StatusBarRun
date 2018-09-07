@@ -96,7 +96,18 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
             if (options["label"] != JSON.null) {
                 let labelOptions = options["label"];
                 runProcess(options: labelOptions, terminationHandler: {(label) -> Void in
-                    item.title = labelOptions["prefix"].stringValue + label + labelOptions["suffix"].stringValue;
+                    var text = label
+                    let trimOutput = labelOptions["trimOutput"]
+                    if (trimOutput.exists() && (trimOutput.type == .string || (trimOutput.type == .bool && trimOutput.boolValue))) {
+                        var characters = " \n"
+                        
+                        if (trimOutput.type == .string) {
+                            characters = trimOutput.stringValue
+                        }
+                        
+                        text = text.trimmingCharacters(in: CharacterSet(charactersIn: characters))
+                    }
+                    item.title = labelOptions["prefix"].stringValue + text + labelOptions["suffix"].stringValue;
                 })
             }
             return item;
