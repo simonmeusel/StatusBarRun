@@ -118,8 +118,10 @@ class StatusMenuController: NSObject, NSApplicationDelegate {
     }
     
     @objc func run(sender: NSMenuItem) {
-        let options = map[sender.title]!
-        runProcess(options: options, terminationHandler: nil)
+        let options = map[sender.title]
+        if (options != nil) {
+            runProcess(options: options!, terminationHandler: nil)
+        }
     }
     
     func runProcess(options: JSON, terminationHandler: ((String) -> Void)?) {
