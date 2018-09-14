@@ -4,11 +4,11 @@
 
 This program allows you to run **any program** (terminal command / applescript / open file / start application) via your **status bar** or a **global shortcut**.
 
-This is a mac only application developed natively in swift. Thus its very cpu efficient and does not consume any battery when in idle (**zero energy impact** in activity monitor).
+This is a mac only application developed natively in swift. Thus its very CPU efficient and does not consume any battery when in idle (**zero energy impact** in activity monitor).
 
 ## Installation
 
-This app has been tested on MacOS Sierra and MacOS High Sierra, but should also work in prior versions of MacOS.
+This app has been tested on macOS Sierra and macOS High Sierra, but should also work in prior versions of macOS.
 
 1. Download the app from [here](https://github.com/simonmeusel/StatusBarRun/releases)
 2. Execute the app once
